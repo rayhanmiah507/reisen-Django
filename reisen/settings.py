@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-8_-g49w=oo@lq2=k=#$#3bg1ux306%$u*p(c)26d7$bgr1k_hf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1']
 
 
 # Application definition
@@ -82,11 +82,13 @@ WSGI_APPLICATION = 'reisen.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'reisen',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
+        'USER': 'root',
+        'PASSWORD': '',
         'HOST': 'localhost',
+        'PORT': 3306,
+
     }
 }
 
@@ -129,7 +131,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles_build", 'assets')
 
 
 MEDIA_URL = '/media/'
